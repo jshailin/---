@@ -30,9 +30,9 @@ namespace 策略模式_商场管理软件
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            CashSuper cashSuper = CashFactory.createCashAccept(cbxType.SelectedItem.ToString());
+            CashContext cashSuper = new CashContext(cbxType.SelectedItem.ToString());
             double totalPrices = 0d;
-            totalPrices = cashSuper.AcceptCash(Convert.ToDouble(txtPrice.Text)) * Convert.ToDouble(txtNum.Text);
+            totalPrices = cashSuper.GetResult(Convert.ToDouble(txtPrice.Text)) * Convert.ToDouble(txtNum.Text);
 
             total += totalPrices;
 
