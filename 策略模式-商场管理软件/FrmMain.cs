@@ -30,22 +30,9 @@ namespace 策略模式_商场管理软件
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            CashSuper cashSuper = CashFactory.createCashAccept(cbxType.SelectedItem.ToString());
             double totalPrices = 0d;
-            switch (cbxType.SelectedIndex)
-            {
-                case 0:
-                    totalPrices = Convert.ToDouble(txtPrice.Text) * Convert.ToDouble(txtNum.Text);
-                    break;
-                case 1:
-                    totalPrices = Convert.ToDouble(txtPrice.Text) * Convert.ToDouble(txtNum.Text)*0.8;
-                    break;
-                case 2:
-                    totalPrices = Convert.ToDouble(txtPrice.Text) * Convert.ToDouble(txtNum.Text)*0.7;
-                    break;
-                case 3:
-                    totalPrices = Convert.ToDouble(txtPrice.Text) * Convert.ToDouble(txtNum.Text)*0.5;
-                    break;
-            }
+            totalPrices = cashSuper.AcceptCash(Convert.ToDouble(txtPrice.Text)) * Convert.ToDouble(txtNum.Text);
 
             total += totalPrices;
 
@@ -65,7 +52,7 @@ namespace 策略模式_商场管理软件
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            cbxType.Items.AddRange(new object[]{"正常收费","打八折","打七折","打五折"});
+            cbxType.Items.AddRange(new object[]{"正常收费","打八折", "满300返100" });
             cbxType.SelectedIndex = 0;
         }
     }
