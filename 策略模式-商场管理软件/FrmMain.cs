@@ -30,10 +30,26 @@ namespace 策略模式_商场管理软件
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            double totalPrices = Convert.ToDouble(txtPrice.Text) * Convert.ToDouble(txtNum.Text);
+            double totalPrices = 0d;
+            switch (cbxType.SelectedIndex)
+            {
+                case 0:
+                    totalPrices = Convert.ToDouble(txtPrice.Text) * Convert.ToDouble(txtNum.Text);
+                    break;
+                case 1:
+                    totalPrices = Convert.ToDouble(txtPrice.Text) * Convert.ToDouble(txtNum.Text)*0.8;
+                    break;
+                case 2:
+                    totalPrices = Convert.ToDouble(txtPrice.Text) * Convert.ToDouble(txtNum.Text)*0.7;
+                    break;
+                case 3:
+                    totalPrices = Convert.ToDouble(txtPrice.Text) * Convert.ToDouble(txtNum.Text)*0.5;
+                    break;
+            }
+
             total += totalPrices;
 
-            lbxList.Items.Add("单价：" + txtPrice.Text + " 数量：" + txtNum.Text + " 合计：" + totalPrices.ToString());
+            lbxList.Items.Add("单价：" + txtPrice.Text + " 数量：" + txtNum.Text +" "+cbxType.SelectedItem+ " 合计：" + totalPrices.ToString());
             lblResult.Text = total.ToString();
         }
 
@@ -42,8 +58,15 @@ namespace 策略模式_商场管理软件
             total = 0.0d;
             txtNum.Text = "0";
             txtPrice.Text = "0.00";
+            cbxType.SelectedIndex = 0;
             lbxList.Items.Clear();
             lblResult.Text = total.ToString("N2");
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            cbxType.Items.AddRange(new object[]{"正常收费","打八折","打七折","打五折"});
+            cbxType.SelectedIndex = 0;
         }
     }
 }

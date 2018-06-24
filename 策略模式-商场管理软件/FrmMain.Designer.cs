@@ -46,6 +46,8 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblResult = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbxType = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -78,11 +80,13 @@
             // 
             // lbxList
             // 
+            this.lbxList.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbxList.FormattingEnabled = true;
-            this.lbxList.ItemHeight = 21;
-            this.lbxList.Location = new System.Drawing.Point(12, 84);
+            this.lbxList.HorizontalScrollbar = true;
+            this.lbxList.ItemHeight = 20;
+            this.lbxList.Location = new System.Drawing.Point(12, 124);
             this.lbxList.Name = "lbxList";
-            this.lbxList.Size = new System.Drawing.Size(304, 109);
+            this.lbxList.Size = new System.Drawing.Size(304, 104);
             this.lbxList.TabIndex = 0;
             // 
             // label2
@@ -116,7 +120,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 215);
+            this.label3.Location = new System.Drawing.Point(12, 245);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 21);
             this.label3.TabIndex = 0;
@@ -126,25 +130,44 @@
             // 
             this.lblResult.AutoSize = true;
             this.lblResult.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.Location = new System.Drawing.Point(105, 215);
+            this.lblResult.Location = new System.Drawing.Point(105, 245);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(64, 33);
             this.lblResult.TabIndex = 0;
             this.lblResult.Text = "0.00";
             this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 89);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 21);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "计算方式：";
+            // 
+            // cbxType
+            // 
+            this.cbxType.FormattingEnabled = true;
+            this.cbxType.Location = new System.Drawing.Point(108, 86);
+            this.cbxType.Name = "cbxType";
+            this.cbxType.Size = new System.Drawing.Size(97, 29);
+            this.cbxType.TabIndex = 5;
+            // 
             // FrmMain
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 276);
+            this.ClientSize = new System.Drawing.Size(330, 285);
+            this.Controls.Add(this.cbxType);
             this.Controls.Add(this.lbxList);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtNum);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.label1);
@@ -152,6 +175,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "FrmMain";
             this.Text = "商场管理软件";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,6 +192,8 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbxType;
     }
 }
 
